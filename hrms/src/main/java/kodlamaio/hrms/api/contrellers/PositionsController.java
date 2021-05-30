@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import kodlamaio.hrms.business.abstracts.PositionService;
+import kodlamaio.hrms.core.utilities.results.*;
 import kodlamaio.hrms.entities.concretes.Position;
 
 
@@ -22,7 +23,7 @@ public class PositionsController {
 	}
 	
 	@GetMapping("/getall")
-	public List<Position> getAll(){
+	public DataResult<List<Position>> getAll(){
 		
 		return this.positionService.getAll();
 	}

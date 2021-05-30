@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.PositionService;
+import kodlamaio.hrms.core.utilities.results.*;
 import kodlamaio.hrms.dataAccess.abstracts.PositionDao;
 import kodlamaio.hrms.entities.concretes.Position;
 
@@ -21,33 +22,33 @@ public class PositionManager implements PositionService {
 	}
 
 	@Override
-	public void add(Position position) {
-		// TODO Auto-generated method stub
+	public Result add(Position position) {
+		this.positionDao.save(position);
+		return new SuccessResult("Position added.");
+	}
+
+	@Override
+	public Result update(Position position) {
+		
+		return new SuccessResult("Position added.");
+	}
+
+	@Override
+	public Result delete(Position position) {
+		return new SuccessResult("Position added.");
 		
 	}
 
 	@Override
-	public void update(Position position) {
-		// TODO Auto-generated method stub
+	public DataResult<List<Position>> getAll() {
 		
+		return new SuccessDataResult<List<Position>>( positionDao.findAll(),"Position Listed");
 	}
 
 	@Override
-	public void delete(Position position) {
-		// TODO Auto-generated method stub
-		
-	}
+	public DataResult<Position> get(int id) {
 
-	@Override
-	public List<Position> getAll() {
-		
-		return positionDao.findAll();
-	}
-
-	@Override
-	public Position get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<Position> ("Position By Id Listed");
 	}
 
 }

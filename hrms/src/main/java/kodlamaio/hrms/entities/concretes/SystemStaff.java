@@ -10,7 +10,7 @@ import lombok.Data;
 public class SystemStaff {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_id")
 	private int userId;
 	@Column(name="claim_id")

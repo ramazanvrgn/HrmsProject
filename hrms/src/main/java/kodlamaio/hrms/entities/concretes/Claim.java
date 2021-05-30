@@ -10,7 +10,7 @@ import lombok.Data;
 public class Claim {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	@Column(name="claim_name")

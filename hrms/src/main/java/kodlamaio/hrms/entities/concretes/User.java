@@ -2,15 +2,22 @@ package kodlamaio.hrms.entities.concretes;
 
 import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Data
 @Entity
 @Table(name="users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
+
 public class User {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_id")
 	private int userId;
 	@Column(name="email")
@@ -22,14 +29,4 @@ public class User {
 	@Column(name="status")
 	private boolean status;
 	
-	public User() {}
-	
-	public User(int user_id, String email, String password, String password_repeat, boolean status) {
-		super();
-		this.userId = user_id;
-		this.email = email;
-		this.password = password;
-		this.passwordRepeat = password_repeat;
-		this.status = status;
-	}
 }
